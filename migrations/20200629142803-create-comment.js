@@ -22,7 +22,7 @@ module.exports = {
       },
     });
   },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("comments");
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable("comments");
   },
 };
