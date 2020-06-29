@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   user.associate = function (models) {
     user.hasMany(models.story);
-    user.hasMany(models.comments);
+    user.hasMany(models.comment);
   };
   return user;
 };

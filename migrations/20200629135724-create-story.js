@@ -10,18 +10,18 @@ module.exports = {
       },
       title: {
         type: Sequelize.STRING,
-        allowNull: fasle,
+        allowNull: false,
       },
       content: {
         type: Sequelize.TEXT,
-        allowNull: fasle,
+        allowNull: false,
       },
       imageUrl: {
         type: Sequelize.STRING,
       },
       rating: {
         type: Sequelize.INTEGER,
-        allowNull: fasle,
+        allowNull: false,
         defaultVallue: 0,
       },
       createdAt: {

@@ -1,6 +1,9 @@
 {
   "development": {
-    "url": "YOUR_ELEPHANTSQL_URL_HERE",
+    "username": "postgres",
+    "password": "secret",
+    "database": "hanh-nazneen-groupproject-dev",
+    "host": "localhost",
     "dialect": "postgres",
     "operatorsAliases": "0"
   },

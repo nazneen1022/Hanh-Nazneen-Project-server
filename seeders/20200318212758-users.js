@@ -10,14 +10,27 @@ module.exports = {
         {
           name: "testuser",
           email: "test@test.com",
-          password: bcrypt.hashSync("test1234", SALT_ROUNDS),
+          password: bcrypt.hashSync("test123", SALT_ROUNDS),
+          imageUrl: "",
+          description: "",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "dummy",
-          email: "a@a.com",
-          password: bcrypt.hashSync("a", SALT_ROUNDS),
+          name: "Hanh Ngo",
+          email: "hanhngo@gmail.com",
+          password: bcrypt.hashSync("hanhngo123", SALT_ROUNDS),
+          imageUrl: "",
+          description: "",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Nazneen N",
+          email: "nazneen@gmail.com",
+          password: bcrypt.hashSync("nazneen123", SALT_ROUNDS),
+          imageUrl: "",
+          description: "",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -26,7 +39,7 @@ module.exports = {
     );
   },
 
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete("users", null, {});
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkDelete("users", null, {});
   },
 };
