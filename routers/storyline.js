@@ -17,7 +17,7 @@ router.get("/", async (request, response, next) => {
 });
 
 router.post("/", auth, async (request, response, next) => {
-  console.log("request.body:", request.body);
+  //console.log("request.body:", request.body);
   const { content } = request.body;
 
   try {
