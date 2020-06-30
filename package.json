@@ -1,7 +1,7 @@
 {
-  "name": "server-template",
+  "name": "hanh-nazneen-groupproject-server",
   "version": "1.0.0",
-  "description": "Simple express server with sequelize, pg and jwts",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node .",
