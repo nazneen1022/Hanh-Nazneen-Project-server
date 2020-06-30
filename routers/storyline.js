@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const Storyline = require("../models").storyLine;
 
-//console.log("naz:", require("../models"));
 const auth = require("../auth/middleware");
 
 const router = new Router();
