@@ -56,6 +56,9 @@ app.use("/", authRouter);
 const storylinesRouter = require("./routers/storyline");
 app.use("/storylines", storylinesRouter);
 
+const storiesRouter = require("./routers/stories");
+app.use("/stories", storiesRouter);
+
 // Listen for connections on specified port (default is port 4000)
 
 app.listen(PORT, () => {

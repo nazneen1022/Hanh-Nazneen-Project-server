@@ -1,17 +1,14 @@
 const { Router } = require("express");
-const Storyline = require("../models").storyLine;
-
-//console.log("naz:", require("../models"));
-
+const Story = require("../models").story;
 const router = new Router();
 
 router.get("/", async (request, response, next) => {
   try {
-    const storylines = await Storyline.findAll();
-    if (!storylines) {
+    const stories = await Story.findAll();
+    if (!stories) {
       return response.status(403).send({ message: "no story lines found!" });
     }
-    return response.status(200).send(storylines);
+    return response.status(200).send(stories);
   } catch (error) {
     next(error);
   }
