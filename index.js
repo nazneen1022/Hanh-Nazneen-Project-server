@@ -53,9 +53,6 @@ app.post("/authorized_post_request", authMiddleWare, (req, res) => {
 
 app.use("/", authRouter);
 
-const storyRouter = require("./routers/story");
-app.use("/story", storyRouter);
-
 const storylinesRouter = require("./routers/storyline");
 app.use("/storylines", storylinesRouter);
 
