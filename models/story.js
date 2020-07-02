@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.STRING,
       content: DataTypes.TEXT,
       imageUrl: DataTypes.STRING,
-      rating: DataTypes.INTEGER,
+      ratingAverage: { type: DataTypes.INTEGER, defaultValue: 0 },
     },
     {}
   );
@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     story.belongsTo(models.user);
     story.belongsTo(models.storyLine);
     story.hasMany(models.comment);
+    story.hasMany(models.rating);
   };
   return story;
 };
