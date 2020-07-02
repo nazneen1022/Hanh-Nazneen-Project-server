@@ -1,24 +1,57 @@
 const { Router } = require("express");
-const authMiddleware = require("../auth/middleware");
+
+const auth = require("../auth/middleware");
+
 const Story = require("../models").story;
 const User = require("../models").user;
 const Rating = require("../models").rating;
 const router = new Router();
 
-// get all stories
-router.get("/", async (request, response, next) => {
+
+
+
+router.post("/:storyLineId", auth, async (request, response, next) => {
+  console.log("request.body:", request.body, request.params);
+  const { storyLineId } = request.params;
+  const { title, content, imageUrl, rating, userId } = request.body;
   try {
-    const stories = await Story.findAll();
-    if (!stories) {
-      return response.status(403).send({ message: "no story lines found!" });
+    if (!userId) {
+      return response.status(300).send({
+        message: "userId value cannot be blank",
+      });
     }
-    return response.status(200).send(stories);
+    if (!storyLineId) {
+      return response.status(300).send({
+        message: "story must have storyLineId",
+      });
+    }
+    if (!title || !content || !imageUrl) {
+      return response.status(403).send({
+        message: "story must have title, content, imageUrl",
+      });
+    }
+    const myStory = await Story.create({
+      title,
+      content,
+      imageUrl,
+      rating,
+      userId,
+      storyLineId,
+    });
+    if (!myStory) {
+      return response.status(203).send({
+        message: "Something went wrong, cannot create story!",
+      });
+    }
+    return response.status(200).send(myStory);
   } catch (error) {
     next(error);
   }
 });
 
+
 // get stories with same story line
+
 router.get("/:storyLineId", async (request, response, next) => {
   try {
     const stories = await Story.findAll({
@@ -33,6 +66,7 @@ router.get("/:storyLineId", async (request, response, next) => {
   }
 });
 
+
 // get a single story detail
 router.get("/story/:storyid", async (request, response, next) => {
   try {
@@ -46,10 +80,13 @@ router.get("/story/:storyid", async (request, response, next) => {
       return response.status(403).send({ message: "no story found!" });
     }
     return response.status(200).send(story);
+
+
   } catch (error) {
     next(error);
   }
 });
+
 // Rate a story
 router.post(
   "/story/:storyid/rate",
@@ -121,5 +158,6 @@ router.post(
     }
   }
 );
+
 
 module.exports = router;
