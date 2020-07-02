@@ -10,7 +10,7 @@ module.exports = {
           content:
             "He didn't reply and immediately she thought: they've got him and now they're coming for me. Lorem ipsum dolor sit amet, inani feugait mel an, causae salutatus ad sed, duo noluisse ponderum cu. Cu menandri elaboraret pri, mei signiferumque vituperatoribus ad. No fastidii apeirian erroribus sit, suscipit iudicabit pro ne. Mei unum dicta iusto an. Vim iusto mucius iriure ex, eu has menandri conceptam, brute legere quo at. Ad omnis appetere duo. Doming erroribus pro id, ex vel alienum quaestio.",
           imageUrl:
-            "https://www.google.com/url?sa=i&url=http%3A%2F%2Fliteraturef1tof3.weebly.com%2Fmr-nobody.html&psig=AOvVaw3I3TP-CifNqVVxmQzKg-eI&ust=1593532517533000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMigvLGxp-oCFQAAAAAdAAAAABAD",
+            "http://literaturef1tof3.weebly.com/uploads/2/8/4/7/28471431/5973721_orig.jpg",
           ratingAverage: 2,
           userId: 1,
           storyLineId: 1,
