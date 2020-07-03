@@ -7,9 +7,6 @@ const User = require("../models").user;
 const Rating = require("../models").rating;
 const router = new Router();
 
-
-
-
 router.post("/:storyLineId", auth, async (request, response, next) => {
   console.log("request.body:", request.body, request.params);
   const { storyLineId } = request.params;
@@ -49,7 +46,6 @@ router.post("/:storyLineId", auth, async (request, response, next) => {
   }
 });
 
-
 // get stories with same story line
 
 router.get("/:storyLineId", async (request, response, next) => {
@@ -66,7 +62,6 @@ router.get("/:storyLineId", async (request, response, next) => {
   }
 });
 
-
 // get a single story detail
 router.get("/story/:storyid", async (request, response, next) => {
   try {
@@ -80,8 +75,6 @@ router.get("/story/:storyid", async (request, response, next) => {
       return response.status(403).send({ message: "no story found!" });
     }
     return response.status(200).send(story);
-
-
   } catch (error) {
     next(error);
   }
@@ -158,6 +151,5 @@ router.post(
     }
   }
 );
-
 
 module.exports = router;
