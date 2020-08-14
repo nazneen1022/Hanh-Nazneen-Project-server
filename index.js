@@ -12,7 +12,12 @@ app.use(loggerMiddleWare("dev"));
 const bodyParserMiddleWare = express.json();
 app.use(bodyParserMiddleWare);
 
-app.use(corsMiddleWare());
+app.use(
+  corsMiddleWare({
+    credentials: true,
+    origin: "https://whatsyourstory.netlify.app",
+  })
+);
 
 if (process.env.DELAY) {
   app.use((req, res, next) => {
