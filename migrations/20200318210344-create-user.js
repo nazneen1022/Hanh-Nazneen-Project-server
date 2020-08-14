@@ -32,10 +32,13 @@ module.exports = {
       description: {
         type: Sequelize.TEXT,
         allowNull: false,
+        defaultValue: "I like writing stories",
       },
       imageUrl: {
         type: Sequelize.STRING,
         allowNull: false,
+        defaultValue:
+          "https://cdn1.iconfinder.com/data/icons/business-character-1/128/8-512.png",
       },
     });
   },

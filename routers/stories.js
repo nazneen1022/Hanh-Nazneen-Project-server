@@ -5,14 +5,16 @@ const auth = require("../auth/middleware");
 const Story = require("../models").story;
 const User = require("../models").user;
 const Rating = require("../models").rating;
+
 const Comment = require("../models").comment;
+
 
 const router = new Router();
 
 router.post("/:storyLineId", auth, async (request, response, next) => {
   console.log("request.body:", request.body, request.params);
   const { storyLineId } = request.params;
-  const { title, content, imageUrl, rating, userId } = request.body;
+  const { title, content, imageUrl, userId } = request.body;
   try {
     if (!userId) {
       return response.status(300).send({
@@ -33,7 +35,6 @@ router.post("/:storyLineId", auth, async (request, response, next) => {
       title,
       content,
       imageUrl,
-      rating,
       userId,
       storyLineId,
     });
@@ -54,6 +55,8 @@ router.get("/:storyLineId", async (request, response, next) => {
   try {
     const stories = await Story.findAll({
       where: { storyLineId: request.params.storyLineId },
+      include: { model: User, attributes: ["name"] },
+      order: [["createdAt", "DESC"]],
     });
     if (!stories) {
       return response.status(403).send({ message: "no story  found!" });
@@ -77,6 +80,7 @@ router.get("/story/:storyid", async (request, response, next) => {
       return response.status(403).send({ message: "no story found!" });
     }
     return response.status(200).send(story);
+
   } catch (error) {
     next(error);
   }
@@ -145,6 +149,7 @@ router.post("/story/:storyid/rate", auth, async (request, response, next) => {
         return response.status(200).send(story);
       }
     }
+
   } catch (error) {
     next(error);
   }
